@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+
+jobs:
+  osx:
+    runs-on: macos-latest
+    env:
+      BUILD_TARGET: osx
+      BUILD_ARCH: x86_64
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build jpeg-turbo on mac. 🔨
+        shell: bash
+        run: |
+          cmake -version
+          mkdir build && cd build
+          cmake ../ && make
+
