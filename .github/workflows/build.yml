@@ -2,12 +2,12 @@ name: build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths-ignore:
       - '*.md'
       - '.gitignore'
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     paths-ignore:
       - '*.md'
       - '.gitignore'
